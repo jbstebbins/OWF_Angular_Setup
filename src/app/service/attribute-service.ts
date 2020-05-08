@@ -19,12 +19,12 @@ export class AttributeService {
 
   }
 
-  getConfig() {
+  getAttribute() {
     let values = this.http
       .get<AttributeModel[]>(this.baseUrl, { responseType: 'json' })
       .pipe(
         map(data => _.values(data)),
-        catchError(this.handleError('getConfig', [])),
+        catchError(this.handleError('getAttribute', [])),
         tap(console.log));
     return values;
   }
